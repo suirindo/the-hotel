@@ -73,8 +73,8 @@ def hotel_search(place, checkin, checkout):#場所とチェックイン日とチ
           msg = msg.rstrip()
           return msg
       except:
-          import traceback
-          traceback.print_exc()
+          #import traceback
+          #traceback.print_exc()
           return "API接続中に何らかのエラーが発生しました"
        #空室が見つからなかったときや過去の日付を指定してしまったときなど、正常にAPIと通信ができていて、
        #かつAPIからエラー情報が返ってきた場合の処理を記述
