@@ -53,6 +53,8 @@ def callback():
 #    @handler.add(MessageEvent, message=(TextMessage, ImageMessage)
 #と書くことができます。
 def handle_message(event):
+   if event.reply_token == "00000000000000000000000000000000":
+        return
    push_text = event.message.text
    #event.message.textでユーザーから受け取ったメッセージを取得することができます。
    results = hotel.extract_words(push_text)
@@ -60,6 +62,7 @@ def handle_message(event):
        msg = hotel.hotel_search(*results)
    else:
        msg = results
+         
    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=msg))
  if __name__ == "__main__":
    port = int(os.getenv("PORT"))
