@@ -53,8 +53,10 @@ def hotel_search(place, checkin, checkout):  # 場所とチェックイン日と
         "longitude": longitude,
         "searchRadius": "3",  # 緯度、経度で指定した場所からの距離(検索半径、km)
         "datumType": "1",  # 緯度、経度のタイプ 1=世界測地系
-        "hits": "5",
-    }  # 取得件数
+        "maxCharge": "5000",
+        "minCharge": "1500",
+        "hits": "5",  # 取得件数
+    }
 
     # APIへ接続し辞書形式でデータを得る
     # requests.getにより設定したURLとパラメータを元にGET通信を行います。
