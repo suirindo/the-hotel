@@ -44,26 +44,15 @@ def callback():
    return 'OK'
 
 @handler.add(MessageEvent, message=TextMessage)
-#テキストメッセージを受け取った場合、という意味
-
-#@handler.addから始まる部分はif...elif文のようなイメージで場合分けして書くもので、例えば画像メッセージを受け取った場合の処理を分けたいなら、
-#    @handler.add(MessageEvent, message=ImageMessage)
-#と、別に書く必要があります。
-#テキストも画像もまとめて処理をしたいなら
-#    @handler.add(MessageEvent, message=(TextMessage, ImageMessage)
-#と書くことができます。
 def handle_message(event):
-   if event.reply_token == "00000000000000000000000000000000":
-        return
    push_text = event.message.text
-   #event.message.textでユーザーから受け取ったメッセージを取得することができます。
    results = hotel.extract_words(push_text)
    if isinstance(results, tuple):
        msg = hotel.hotel_search(*results)
    else:
        msg = results
-         
    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=msg))
- if __name__ == "__main__":
+
+if __name__ == "__main__":
    port = int(os.getenv("PORT"))
    app.run(host="0.0.0.0", port=port)
