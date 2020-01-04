@@ -45,6 +45,9 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+
+   if event.reply_token == "00000000000000000000000000000000":
+      return
    push_text = event.message.text
    results = hotel.extract_words(push_text)
    if isinstance(results, tuple):
