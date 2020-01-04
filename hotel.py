@@ -53,6 +53,8 @@ def hotel_search(place, checkin, checkout):  # 場所とチェックイン日と
         "longitude": longitude,
         "searchRadius": "3",  # 緯度、経度で指定した場所からの距離(検索半径、km)
         "datumType": "1",  # 緯度、経度のタイプ 1=世界測地系
+        "maxCharge": "5000",
+        "minCharge": "1500",
         "hits": "5",
     }  # 取得件数
 
