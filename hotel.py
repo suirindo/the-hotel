@@ -51,7 +51,7 @@ def hotel_search(place, checkin, checkout):  # 場所とチェックイン日と
         "checkoutDate": checkout,
         "latitude": latitude,
         "longitude": longitude,
-        "searchRadius": "1.5",  # 緯度、経度で指定した場所からの距離(検索半径、km)
+        "searchRadius": "1.0",  # 緯度、経度で指定した場所からの距離(検索半径、km)
         "datumType": "1",  # 緯度、経度のタイプ 1=世界測地系
         "maxCharge": "5000",
         "minCharge": "1500",
@@ -73,7 +73,7 @@ def hotel_search(place, checkin, checkout):  # 場所とチェックイン日と
         hotel_count_display = content["pagingInfo"]["last"]
         msg = (
             place
-            + "の半径1.5km以内に合計"
+            + "の半径1.0km以内に合計"
             + str(hotel_count)
             + "件見つかりました。"
             + str(hotel_count_display)
